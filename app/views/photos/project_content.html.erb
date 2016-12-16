@@ -1,0 +1,11 @@
+
+
+<%#= image_tag @photo.image.url.to_s, :class => "img-thumbnail" , size: "360" %>
+<%= video_player({:file => @photo.image.url}) %>
+<br/>
+<%="Other Videos Uploaded By #{@photo.author}"%>
+<%@videos.each do |v|%>
+
+
+<%= link_to image_tag(v.image.url(:thumb), class: 'media-object'),{:action => 'project_content', :id => v.id,:username=>v.author} %>
+<%end%>
